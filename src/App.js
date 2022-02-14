@@ -1,23 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import ListCard from './components/ListCard';
+import Searchbar from './components/Searchbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Searchbar/>
+    {/* <ListCard title="ΛΕΞ - VARANE" thumbnail="https://volte-tel.gr/uploadimages/sync_images/69214/main.jpg"/> */}
     </div>
   );
 }
