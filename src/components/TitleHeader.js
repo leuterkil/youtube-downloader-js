@@ -5,6 +5,7 @@ import { useTheme } from '@mui/material/styles';
 function TitleHeader() {
     const theme = useTheme();
     theme.typography.h2={
+        fontSize:'4rem',
         [theme.breakpoints.down('md')]:{
           fontSize:'2.1rem',
         }
