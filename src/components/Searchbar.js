@@ -6,7 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ListCard from './ListCard';
 import { CircularProgress, List } from '@mui/material';
-import { width } from '@mui/system';
+import Box from '@mui/material/Box';
+import TitleHeader from './TitleHeader';
 
 
 
@@ -16,7 +17,7 @@ const handleSubmit = async (e,value,video)=>{
     
     
     video(<CircularProgress sx={{display:"flex",margin:"auto"}}/>);
-    if(value=="")
+    if(value==="")
     {
         alert("Please enter a valid search query");
     }
@@ -45,11 +46,14 @@ export default function Searchbar() {
     const [video,setVideo] = useState([]);
   return (
       <div>
+        <Box sx={{backgroundColor:"#aaaaff",p:10,display:"flex",flexDirection:"column",alignContent:"center",flexWrap:"wrap"}}>
+          <TitleHeader/>
     <Paper
       component="form"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "21rem",borderRadius:123,margin:"auto",marginBottom:"2rem"}}
       onSubmit={(e)=>handleSubmit(e,search,setVideo)}
     >
+      
       <InputBase
         sx={{ ml: 1, flex: 1}}
         placeholder="Search Youtube Videos..."
@@ -60,6 +64,7 @@ export default function Searchbar() {
         <SearchIcon />
       </IconButton>
     </Paper>
+    </Box>
     
     <List sx={{  width: '100%', bgcolor: 'background.paper'}}>
         {video}
