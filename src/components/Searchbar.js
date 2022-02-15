@@ -21,7 +21,7 @@ const handleSubmit = async (e,value,video)=>{
         alert("Please enter a valid search query");
     }
     else{
-        await fetch(`http://youtube-api-left4dev.herokuapp.com/api/search/?q=${value}`,{mode:'cors'})
+        await fetch(`https://youtube-api-left4dev.herokuapp.com/api/search/?q=${value}`,{mode:'cors'})
         .then(res=>res.json())
         .then((data)=>{
             console.log(data.results);
