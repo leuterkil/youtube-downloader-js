@@ -25,9 +25,19 @@ const downloadMp3 = async (e,id,loading)=>{
 
 }
 
+
+
 export default function ListCard(props) {
   const theme = useTheme();
-
+  
+  theme.typography.h5={
+    width:'20rem',
+    fontSize:'1.5rem',
+    [theme.breakpoints.down('md')]:{
+      width:"8rem",
+      fontSize:'1.1rem',
+    }
+  };
   const [loading,setLoading]=useState(false);
 
   return (
@@ -42,7 +52,7 @@ export default function ListCard(props) {
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5" sx={{width:"20rem"}}>
+          <Typography component="div" variant="h5" >
             {props.title}
           </Typography>
           <Typography

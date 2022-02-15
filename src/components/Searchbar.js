@@ -47,7 +47,7 @@ export default function Searchbar() {
       <div>
     <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400,borderRadius:123,margin:"auto",marginBottom:"2rem"}}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "21rem",borderRadius:123,margin:"auto",marginBottom:"2rem"}}
       onSubmit={(e)=>handleSubmit(e,search,setVideo)}
     >
       <InputBase
