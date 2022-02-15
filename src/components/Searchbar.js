@@ -28,7 +28,7 @@ const handleSubmit = async (e,value,video)=>{
             data.results.map((item)=>{
                 if(item.video)
                 {
-                    videosList.push(<ListCard title={item.video.title} thumbnail={item.video.thumbnail_src} views={item.video.views}/>);
+                    videosList.push(<ListCard title={item.video.title} thumbnail={item.video.thumbnail_src} views={item.video.views} videoId={item.video.id}/>);
                 }
                 
             });
