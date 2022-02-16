@@ -18,13 +18,15 @@
     "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-lite-youtube-embed": "^2.2.1",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "serve": "^13.0.2",
     "web-vitals": "^2.1.4",
     "youtube-mp3-downloader": "^0.7.10"
   },
   "scripts": {
-    "develop":"react-scripts start",
+    "develop": "react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",

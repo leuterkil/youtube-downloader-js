@@ -11,6 +11,7 @@ import { CircularProgress } from '@mui/material';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 import { ArrowDownwardRounded } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const downloadMp3 = async (e,id,loading)=>{
 
@@ -70,15 +71,19 @@ export default function ListCard(props) {
 
   return (
 
+    
       <ListItem sx={{justifyContent:'center'}} >
     <Card sx={ styles(theme).root}>
+    <Link style={{textDecoration:"none"}} to={`/video/${props.videoId}`}>
             <CardMedia
         component="img"
         sx={{ width: 151,height:101 }}
         image={props.thumbnail}
         alt={props.title}
       />
+      </Link>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Link style={{textDecoration:"none"}} to={`/video/${props.videoId}`}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5" sx={styles(theme).title}>
             {props.title}
@@ -100,6 +105,7 @@ export default function ListCard(props) {
             {props.duration}
           </Typography>
         </CardContent>
+        </Link>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <Button variant="contained" disabled={loading} size="small" color="primary" sx={{ml:2}} onClick={(e)=>{downloadMp3(e,props.videoId,setLoading)}}>
           <ArrowDownwardRounded sx={{mr:1}}/> <Typography variant="button" sx={styles(theme).buttonText}> Download MP3</Typography>   {loading && (
@@ -125,5 +131,6 @@ export default function ListCard(props) {
 
     </Card>
     </ListItem>
+    
   );
 }

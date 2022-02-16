@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box,AppBar,Toolbar,Typography } from '@mui/material';
+import { Link} from 'react-router-dom';
+
 
 function Navigation() {
     return (         
@@ -7,7 +9,7 @@ function Navigation() {
         <AppBar position="static" sx={{background:"#aaaaff"}}>
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Youtube Downloader
+              <Link to="/">Youtube Downloader</Link>
             </Typography>
           </Toolbar>
         </AppBar>

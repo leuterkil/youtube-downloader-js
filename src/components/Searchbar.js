@@ -47,8 +47,8 @@ export default function Searchbar() {
     const [search, setSearch] = useState('');
     const [video,setVideo] = useState([]);
   return (
-      <div>
-        <Box sx={{backgroundColor:"#aaaaff",p:10,display:"flex",flexDirection:"column",alignContent:"center",flexWrap:"wrap"}}>
+      <div style={{background:"url(https://ak.picdn.net/shutterstock/videos/11744756/thumb/3.jpg)"}}>
+        <Box sx={{background:"rgba(0,0,0,0.5)",p:10,display:"flex",flexDirection:"column",alignContent:"center",flexWrap:"wrap"}}>
           <TitleHeader/>
     <Paper
       component="form"
