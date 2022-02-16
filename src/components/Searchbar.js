@@ -5,7 +5,8 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ListCard from './ListCard';
-import { CircularProgress, List } from '@mui/material';
+import { CircularProgress, List} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import TitleHeader from './TitleHeader';
 
@@ -29,7 +30,7 @@ const handleSubmit = async (e,value,video)=>{
             data.results.map((item)=>{
                 if(item.video)
                 {
-                    videosList.push(<ListCard title={item.video.title} thumbnail={item.video.thumbnail_src} views={item.video.views} videoId={item.video.id}/>);
+                    videosList.push(<ListCard key={item.video.id} duration ={item.video.duration}title={item.video.title} thumbnail={item.video.thumbnail_src} views={item.video.views} videoId={item.video.id} link={item.video.url}/>);
                 }
                 
             });
@@ -42,6 +43,7 @@ const handleSubmit = async (e,value,video)=>{
 }
 
 export default function Searchbar() {
+  const theme = useTheme();
     const [search, setSearch] = useState('');
     const [video,setVideo] = useState([]);
   return (

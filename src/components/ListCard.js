@@ -10,6 +10,7 @@ import { Button, List,ListItem } from '@mui/material';
 import { CircularProgress } from '@mui/material';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
+import { ArrowDownwardRounded } from '@mui/icons-material';
 
 const downloadMp3 = async (e,id,loading)=>{
 
@@ -29,12 +30,39 @@ const downloadMp3 = async (e,id,loading)=>{
 
 export default function ListCard(props) {
   const theme = useTheme();
-  
+  const styles = (theme)=>({
+    root:{
+      display: 'flex',
+      paddingInline:"2rem",
+      paddingTop:"1rem",
+      [theme.breakpoints.down('md')]:{
+        flexDirection:'column',
+        alignItems:'center',
+      }
+    },
+    buttonText:{
+      fontSize:'0.875rem',
+      [theme.breakpoints.down('md')]:{
+        fontSize:'10px'
+      }
+    },
+    title:{
+      [theme.breakpoints.down('md')]:{
+        margin:'auto',
+        textAlign:'center'
+      }
+    },
+    views:{
+      [theme.breakpoints.down('md')]:{
+        textAlign:'center'
+      }
+    }
+  });
   theme.typography.h5={
     width:'20rem',
     fontSize:'1.5rem',
     [theme.breakpoints.down('md')]:{
-      width:"8rem",
+      width:"14rem",
       fontSize:'1.1rem',
     }
   };
@@ -43,7 +71,7 @@ export default function ListCard(props) {
   return (
 
       <ListItem sx={{justifyContent:'center'}} >
-    <Card sx={{ display: 'flex',paddingInline:"2rem",paddingTop:"1rem"}}>
+    <Card sx={ styles(theme).root}>
             <CardMedia
         component="img"
         sx={{ width: 151,height:101 }}
@@ -52,22 +80,29 @@ export default function ListCard(props) {
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5" >
+          <Typography component="div" variant="h5" sx={styles(theme).title}>
             {props.title}
           </Typography>
           <Typography
             variant="subtitle1"
             color="text.secondary"
             component="div"
+            sx={styles(theme).views}
           >
             {props.views}
           </Typography>
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            component="div"
+            sx={styles(theme).views}
+          >
+            {props.duration}
+          </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <Button size="small" color="primary" onClick={(e)=>{downloadMp3(e,props.videoId,setLoading)}}>
-            Download Mp3
-          </Button>
-          {loading && (
+          <Button variant="contained" disabled={loading} size="small" color="primary" sx={{ml:2}} onClick={(e)=>{downloadMp3(e,props.videoId,setLoading)}}>
+          <ArrowDownwardRounded sx={{mr:1}}/> <Typography variant="button" sx={styles(theme).buttonText}> Download MP3</Typography>   {loading && (
           <CircularProgress
             size={24}
             sx={{
@@ -80,6 +115,11 @@ export default function ListCard(props) {
             }}
           />
         )}
+          </Button>
+          <Button variant="contained" size="small" color="primary" sx={{ml:2}} href={props.link}>
+           <Typography variant="button" sx={styles(theme).buttonText}> Youtube Link</Typography>
+          </Button>
+
         </Box>
       </Box>
 
